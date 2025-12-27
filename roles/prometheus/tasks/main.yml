@@ -1,0 +1,12 @@
+- name: Run Prometheus container
+  containers.podman.podman_container:
+    name: prometheus
+    image: quay.io/prometheus/prometheus
+    state: started
+    restart_policy: always
+    network: monitoring_net
+    ports:
+      - "9090:9090"
+    volumes:
+      - "{{ role_path }}/files/prometheus.yml:/etc/prometheus/prometheus.yml:Z"
+

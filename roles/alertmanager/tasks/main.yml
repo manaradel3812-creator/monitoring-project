@@ -1,0 +1,12 @@
+- name: Run Alertmanager container
+  containers.podman.podman_container:
+    name: alertmanager
+    image: quay.io/prometheus/alertmanager
+    state: started
+    restart_policy: always
+    network: monitoring_net
+    ports:
+      - "9093:9093"
+    volumes:
+      - "{{ role_path }}/files/alertmanager.yml:/etc/alertmanager/alertmanager.yml:Z"
+

@@ -1,0 +1,8 @@
+- name: Deploy Centralized Monitoring Stack
+  hosts: monitoring
+  become: true
+  roles:
+    - prometheus
+    - alertmanager
+    - grafana
+

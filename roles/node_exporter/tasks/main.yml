@@ -1,0 +1,20 @@
+- name: Remove existing node_exporter container if exists
+  containers.podman.podman_container:
+    name: node_exporter
+    state: absent
+
+- name: Create monitoring podman network
+  containers.podman.podman_network:
+    name: monitoring_net
+    state: present
+
+- name: Run node exporter container
+  containers.podman.podman_container:
+    name: node_exporter
+    image: quay.io/prometheus/node-exporter
+    state: started
+    restart_policy: always
+    network: monitoring_net
+    ports:
+      - "9100:9100"
+
