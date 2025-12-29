@@ -1,70 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitoring Stack Project</title>
-</head>
-<body>
-    <h1>🖥️ Monitoring Stack Project</h1>
-    <p>This project sets up a <strong>centralized monitoring stack</strong> using <strong>Ansible</strong> and <strong>Podman</strong>. It allows you to monitor your local host and visualize system metrics through a user-friendly dashboard.</p>
+# 🚀 Monitoring Stack Project
 
-    <h2>🚀 Components</h2>
-    <ul>
-        <li><strong>Prometheus</strong> 🟢: Collects and stores metrics.</li>
-        <li><strong>Grafana</strong> 📊: Visualizes metrics with interactive dashboards.</li>
-        <li><strong>Alertmanager</strong> ⚠️: Handles and manages system alerts.</li>
-        <li><strong>Node Exporter</strong> 💻: Exports host hardware and OS metrics to Prometheus.</li>
-    </ul>
+![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white)
+![Podman](https://img.shields.io/badge/Podman-F5533D?style=for-the-badge&logo=podman&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 
-    <h2>📂 Project Structure</h2>
-    <pre>
+This project demonstrates how to *set up a centralized monitoring stack* using *Ansible* and *Podman*, providing an interactive dashboard for system metrics and alert management.
+
+---
+
+## 🗂️ Project Overview
+
+The monitoring stack includes multiple components:
+
+- *Prometheus* 🟢 – Collects and stores metrics.  
+- *Grafana* 📊 – Visualizes metrics with interactive dashboards.  
+- *Alertmanager* ⚠️ – Handles system alerts.  
+- *Node Exporter* 💻 – Exports host hardware and OS metrics to Prometheus.  
+
+Organized using *Ansible roles*, the deployment is automated and modular for easy management.
+
+---
+
+## 🗂️ Project Structure
+
 monitoring-project/
 ├── ansible.cfg
 ├── inventory/
-│   └── hosts       # Define connection to localhost
+│ └── hosts # Define connection to localhost
 ├── playbooks/
-│   ├── monitoring-stack.yml   # Deploys Prometheus, Grafana, Alertmanager
-│   └── node-exporter.yml      # Deploys Node Exporter
-└── roles/                     # Contains individual tasks and config files
-    </pre>
+│ ├── monitoring-stack.yml # Deploys Prometheus, Grafana, Alertmanager
+│ └── node-exporter.yml # Deploys Node Exporter
+└── roles/ # Contains individual tasks and config files
 
-    <h2>⚙️ Prerequisites</h2>
-    <ul>
-        <li>A Linux VM (Ubuntu/Debian recommended) 🐧</li>
-        <li>Python 3 and Ansible installed 🐍</li>
-        <li>Podman installed 🐳</li>
-        <li>Sudo privileges to manage containers 🔑</li>
-    </ul>
+## ⚙️ Prerequisites
 
-    <h2>🛠️ Deployment Steps</h2>
-    <ol>
-        <li><strong>Create the monitoring network</strong>:<br>
-            <code>sudo podman network create monitoring_net</code>
-        </li>
-        <li><strong>Deploy the Centralized Stack</strong>:<br>
-            <code>ansible-playbook playbooks/monitoring-stack.yml --ask-become-pass</code>
-        </li>
-        <li><strong>Deploy Node Exporter</strong>:<br>
-            <code>ansible-playbook playbooks/node-exporter.yml --ask-become-pass</code>
-        </li>
-    </ol>
+Before running the playbooks, ensure you have:
 
-    <h2>🌐 Accessing the Services</h2>
-    <ul>
-        <li><strong>Prometheus</strong>: <a href="http://localhost:9090">http://localhost:9090</a></li>
-        <li><strong>Alertmanager</strong>: <a href="http://localhost:9093">http://localhost:9093</a></li>
-        <li><strong>Grafana</strong>: <a href="http://localhost:3000">http://localhost:3000</a><br>
-            Default login: <code>admin</code> / <code>admin</code>
-        </li>
-    </ul>
+- A Linux VM (Ubuntu/Debian recommended) 🐧  
+- Python 3 and Ansible installed 🐍  
+- Podman installed 🐳  
+- Sudo privileges to manage containers 🔑  
 
-    <h2>🎯 Features</h2>
-    <ul>
-        <li>Centralized monitoring for local hosts</li>
-        <li>Real-time system metrics visualization</li>
-        <li>Alert management for critical events</li>
-        <li>Fully automated deployment using Ansible & Podman</li>
-    </ul>
-</body>
-</html>
+---
+
+## 🛠️ Deployment Steps
+
+1. *Create the monitoring network*:  
+```bash
+sudo podman network create monitoring_net
