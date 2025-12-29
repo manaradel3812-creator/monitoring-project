@@ -51,17 +51,13 @@ Before running the playbooks, ensure you have:
 sudo podman network create monitoring_net
 ---
 
-
 ## 🖼️ Screenshots
-<img width="1600" height="808" alt="image" src="https://github.com/user-attachments/assets/bd399c4c-a8a8-4444-ac7d-750ffc00280d" />
 
-<img width="1600" height="801" alt="image" src="https://github.com/user-attachments/assets/fad5b435-3b56-499c-b11f-ae7b03ff9947" />
-
-<img width="1600" height="696" alt="image" src="https://github.com/user-attachments/assets/17a493be-9320-446a-b867-dc4630806866" />
-<img width="1600" height="801" alt="image" src="https://github.com/user-attachments/assets/b9c034a3-ea26-483b-a549-362798b82e55" />
-<img width="1460" height="664" alt="image" src="https://github.com/user-attachments/assets/33bca1e9-8c0f-423c-9fbb-f8da9dac1d0f" />
-
-
+![Prometheus Dashboard](images/prometheus1.png)
+![Grafana Dashboard](images/grafana1.png)
+![Alertmanager](images/alertmanager1.png)
+![Node Exporter Metrics](images/nodeexporter1.png)
+![Complete Stack Overview](images/stack_overview.png)
 
 
 
