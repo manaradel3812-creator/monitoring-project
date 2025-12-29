@@ -49,7 +49,7 @@ Before running the playbooks, ensure you have:
 1. *Create the monitoring network*:  
 ```bash
 sudo podman network create monitoring_net
-
+---
 ## Image
 <img width="1600" height="808" alt="image" src="https://github.com/user-attachments/assets/bd399c4c-a8a8-4444-ac7d-750ffc00280d" />
 
