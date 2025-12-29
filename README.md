@@ -27,11 +27,11 @@ Organized using *Ansible roles*, the deployment is automated and modular for eas
 monitoring-project/
 ├── ansible.cfg
 ├── inventory/
-│ └── hosts # Define connection to localhost
+│   └── hosts       # Define connection to localhost
 ├── playbooks/
-│ ├── monitoring-stack.yml # Deploys Prometheus, Grafana, Alertmanager
-│ └── node-exporter.yml # Deploys Node Exporter
-└── roles/ # Contains individual tasks and config files
+│   ├── monitoring-stack.yml   # Deploys Prometheus, Grafana, Alertmanager
+│   └── node-exporter.yml      # Deploys Node Exporter
+└── roles/                     # Contains individual tasks and config files
 
 ## ⚙️ Prerequisites
 
