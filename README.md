@@ -1,121 +1,37 @@
-# Monitoring Stack Project
 
-This project sets up a **centralized monitoring stack** using **Ansible** and **Podman**.  
-It includes the following components:
-
-- **Prometheus**: Collects and stores metrics
-- **Grafana**: Visualizes metrics with dashboards
-- **Alertmanager**: Handles alerts
-- **Node Exporter**: Exports host metrics to Prometheus
-
----
-
-## Features
-
-- Fully automated deployment with **Ansible playbooks**
-- Containerized services using **Podman**
-- Monitoring of the local host
-- Easy access to web UIs for each service
-
----
-
-## Requirements
-
-- Linux VM (Ubuntu/Debian recommended)
-- Python 3
-- Ansible installed
-- Podman installed
-- Sudo privileges (recommended)
-
----
-
-## Project Structure
-
+--------------------------------------------------------------------------------
+Monitoring Stack Project
+This project sets up a centralized monitoring stack using Ansible and Podman. It is designed to monitor the local host and provide a visual dashboard for system metrics.
+Components
+• Prometheus: Collects and stores metrics.
+• Grafana: Visualizes metrics with interactive dashboards.
+• Alertmanager: Handles and manages system alerts.
+• Node Exporter: Exports host hardware and OS metrics to Prometheus.
+Project Structure
+Organizing the project into Ansible Roles allows for better management:
 monitoring-project/
 ├── ansible.cfg
 ├── inventory/
-│ └── hosts
+│   └── hosts            # Define connection to localhost
 ├── playbooks/
-│ ├── monitoring-stack.yml # Deploy Prometheus, Grafana, Alertmanager
-│ └── node-exporter.yml # Deploy Node Exporter on host
-└── roles/
-├── prometheus/
-│ ├── files/prometheus.yml
-│ └── tasks/main.yml
-├── alertmanager/
-│ ├── files/alertmanager.yml
-│ └── tasks/main.yml
-├── grafana/
-│ └── tasks/main.yml
-└── node_exporter/
-├── files/
-└── tasks/main.yml
+│   ├── monitoring-stack.yml # Deploys Prometheus, Grafana, Alertmanager
+│   └── node-exporter.yml    # Deploys Node Exporter
+└── roles/               # Contains individual tasks and config files
+Prerequisites
+Before running the playbooks, ensure you have:
+• A Linux VM (Ubuntu/Debian recommended).
+• Python 3 and Ansible installed.
+• Podman installed.
+• Sudo privileges to manage containers.
+Deployment Steps
+To get the system running, execute these commands in order:
+1. Create the monitoring network: sudo podman network create monitoring_net
+2. Deploy the Centralized Stack: ansible-playbook playbooks/monitoring-stack.yml --ask-become-pass
+3. Deploy Node Exporter: ansible-playbook playbooks/node-exporter.yml --ask-become-pass
+Accessing the Services
+Once deployed, you can access the web interfaces at these addresses:
+• Prometheus: http://localhost:9090
+• Alertmanager: http://localhost:9093
+• Grafana: http://localhost:3000 (Default login: admin / admin)
 
-
----
-
-## Inventory Example
-
-`inventory/hosts`:
-
-```ini
-[monitoring]
-localhost ansible_connection=local
-
-The playbooks will run on the localhost.
-
-Deployment
-1. Ensure network exists
-sudo podman network create monitoring_net
-
-2. Deploy Centralized Monitoring Stack
-ansible-playbook playbooks/monitoring-stack.yml --ask-become-pass
-
-3. Deploy Node Exporter
-ansible-playbook playbooks/node-exporter.yml --ask-become-pass
-
-Access Services
-
-Prometheus → http://localhost:9090
-
-Alertmanager → http://localhost:9093
-
-Grafana → http://localhost:3000
-
-Default login: admin / admin
-
-Node Exporter metrics are available for Prometheus on port 9100.
-
-Notes
-
-If you want to run the playbooks without sudo:
-
-Remove become: true from the playbooks
-
-Change file permissions to allow read access:
-
-chmod 644 roles/prometheus/files/prometheus.yml
-chmod 644 roles/alertmanager/files/alertmanager.yml
-
-
-All containers are connected via Podman network monitoring_net.
-
-License
-
-This project is open-source. You can add a license of your choice (e.g., MIT License).
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
+--------------------------------------------------------------------------------
