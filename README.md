@@ -61,12 +61,8 @@ sudo podman network create monitoring_net
 <img width="1600" height="801" alt="image" src="https://github.com/user-attachments/assets/b9c034a3-ea26-483b-a549-362798b82e55" />
 <img width="1460" height="664" alt="image" src="https://github.com/user-attachments/assets/33bca1e9-8c0f-423c-9fbb-f8da9dac1d0f" />
 
-![Prometheus Dashboard](images/prometheus1.png)
-![Grafana Dashboard](images/grafana1.png)
-![Alertmanager](images/alertmanager1.png)
-![Node Exporter Metrics](images/nodeexporter1.png)
-![Complete Stack Overview](images/stack_overview.png)
-![Prometheus Dashboard](https://github.com/user-attachments/assets/bd399c4c-a8a8-4444-ac7d-750ffc00280d)
-
-
-
+<img src="images/prometheus1.png" alt="Prometheus" width="600"/>
+<img src="images/grafana1.png" alt="Grafana" width="600"/>
+<img src="images/alertmanager1.png" alt="Alertmanager" width="600"/>
+<img src="images/nodeexporter1.png" alt="Node Exporter" width="600"/>
+<img src="images/stack_overview.png" alt="Stack Overview" width="600"/>
